@@ -17,7 +17,13 @@ const Users = new Schema({
   userDate: Date,
   userMobile: String,
   userPoint: Number,
-  userCart:Array,
+  userCart: [{
+    movieId: String,
+    ticketId: String,
+    timeslotId: Date,
+    hallNum: Number,
+    price:Number,
+  }],
 }, {
   collection: 'Users',
 });

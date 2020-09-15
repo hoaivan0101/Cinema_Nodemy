@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family:Alata,sans-serif;
+  width: 100%;
+  height: 100%;
+
+}
+
+@font-face{
+  src:url(../stylesheets/fonts/Alata-Regular.ttf);
+  font-family:Alata;
+}
+
+@font-face{
+  src:url(../stylesheets/fonts/Lemonada-Bold.ttf);
+  font-family:Lemonada;
+}
+
+@font-face{
+  src:url(../stylesheets/fonts/RussoOne-Regular.ttf);
+  font-family:RussoOne;
+}
+
+.main{
+  margin-top: 10px;
+}
+
+.block{
+  width: 100%;
+  margin:0;
+  padding:0;
+}
+
+.main__img{
+  width: 300px;
+  height: 450px;
+}
+
+.main__img--lists{
+  width: 100px;
+  height: 150px;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.content{
+  width:100%;
+}
+
+.main_right{
+  width:100%;
+}
+
+.main_right_lists{
+  min-height: 40px;
+  width:100%;
+}
+
+.main_right_lists_left{
+  width:25%;
+  font-weight: bold;
+}
+
+.main_right_lists--review{
+  font-weight: bold;
+}
+
+.main_right_lists_right{
+  width:75%;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Find */
+
+.findfilm{
+  margin: 10px;
+}
+
+.findfilm:hover{
+  cursor: pointer;
+  color: red;
+}
+
+
+#findfilm:checked~.header__overlay{
+  display:block
+}
+
+#findfilm:checked~.header__findfilm{
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.header__overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(34, 32, 32, 0.904);
+  display: none;
+  z-index: 0;
+  animation: FadeIn linear 0.2s;
+}
+
+.header__findfilm{
+  position: fixed;
+  top: 5%;
+  left: 20%;
+  right: 20%;
+  min-height: 50px;
+  transform: translateY(-80%);
+  opacity: 0;
+  background:rgba(10, 68, 155, 0.329);
+  transition: transform 0.2s, opacity linear 0.2s;
+  z-index: 2;
+}
+
+.header__findfilm input{
+  background: none;
+  color: white;
+  margin: 2px;
+  width: 70%;
+  border: none;
+  border-bottom: 1px solid;
+  font-size: 18px;
+}
+
+.header__findfilm input:focus{
+  background:rgba(255, 0, 0, 0.192);
+  border: none;
+}
+
+@keyframes FadeIn {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+input:focus{
+  border: 0px black solid;
+  background:rgba(137, 43, 226, 0.075)
+}
