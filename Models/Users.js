@@ -25,8 +25,8 @@ const Users = new Schema({
     price:Number,
   }],
 }, {
-  collection: 'Users',
+  collection: 'users',
 });
 
-const Accouts = mongoose.model('Users', Users);
+const Accouts = mongoose.model('users', Users);
 module.exports = Accouts;

@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var User=require('../data/account')
+var User = require('../Models/Users')
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var checkAuth = require('../controller/checkAuth')
 var jwt = require('jsonwebtoken');
+var session = require('express-session')
 
 /* GET users listing. */
 
@@ -14,10 +14,12 @@ router.get('/', function(req, res, next) {
 
 //set passport-local login
 passport.use(new LocalStrategy(
-  function(username, password, done) {
+  function (username, password, done) {
+    console.log(username);
+    console.log(password);
     User.findOne({ 
-      username: username,
-      password: password,
+      userName: username,
+      userPassword: password,
     })
       .then(data => {
         if (!data) { return done(null, false) }
@@ -31,7 +33,7 @@ passport.use(new LocalStrategy(
 
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user) {
-    if (err) { return res.json('Err') }
+    if (err) { return res.json(err) }
     if (!user) { return res.json('Fail') }
     var token = jwt.sign(user.id, 'mk');
     req.session.token = token;

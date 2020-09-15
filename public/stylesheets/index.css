@@ -9,7 +9,10 @@ body {
   font-family:Alata,sans-serif;
   width: 100%;
   height: 100%;
-
+}
+ul,li{
+  margin: 0;
+  padding: 0;
 }
 
 @font-face{
@@ -29,12 +32,6 @@ body {
 
 .main{
   margin-top: 10px;
-}
-
-.block{
-  width: 100%;
-  margin:0;
-  padding:0;
 }
 
 .main__img{
@@ -135,7 +132,7 @@ body {
   left: 20%;
   right: 20%;
   min-height: 50px;
-  transform: translateY(-80%);
+  transform: translateY(-150%);
   opacity: 0;
   background:rgba(10, 68, 155, 0.329);
   transition: transform 0.2s, opacity linear 0.2s;
@@ -152,8 +149,8 @@ body {
   font-size: 18px;
 }
 
-.header__findfilm~input:focus{
-  border: none;
+.header__findfilm input:focus{
+  outline:none;
 }
 
 @keyframes FadeIn {
@@ -166,7 +163,35 @@ body {
   }
 }
 
-input:focus{
-  border: 0px black solid;
-  background:rgba(137, 43, 226, 0.075)
+/* HEADER */
+.header{
+  min-height:50px;
+  background:rgba(63, 63, 63, 0.699);
+  color:white;
+}
+
+.header__lists{
+  list-style: none;
+  justify-content:space-between;
+}
+
+.stick_header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.backtotop{
+  background:rgba(0, 0, 0, 0.733);
+  color: white;
+  position:fixed;
+  left: 80%;
+  bottom: 20px;
+  display: none;
+}
+
+.unhide{
+  display: block;
 }

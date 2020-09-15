@@ -2,7 +2,7 @@ $('.btn_login').click(function () {
     var username = $('#username').val();
     var password = $('#password').val();
     $.ajax({
-      url: '/user/login',
+      url: '/users/login',
       type: "POST",
       data: {
         username: username,
@@ -10,9 +10,17 @@ $('.btn_login').click(function () {
       }
     })
       .then(data => {
-        if (data == 'Fail') { window.location.href = '/user'; }
+        if (data == 'Fail') {swal('ERR')  }
         else {
-          window.location.href ='/main'
+          setTimeout(function() {
+            swal({
+                title: "Wow!",
+                text: "LOGIN SUCCESSFUL",
+                type: "success"
+            }, function() {
+              window.location.href ='/';
+            });
+        }, 100);
         }
       })
       .catch(err => {
