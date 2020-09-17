@@ -2,7 +2,7 @@ $('.btn_login').click(function () {
     var username = $('#username').val();
     var password = $('#password').val();
     $.ajax({
-      url: '/users/login',
+      url: '/auth/local/login',
       type: "POST",
       data: {
         username: username,

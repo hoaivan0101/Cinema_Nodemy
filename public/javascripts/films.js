@@ -1,5 +1,5 @@
 $.ajax({
-    url: '/films',
+    url: '/index/films',
     type: 'GET'
   })
     .then(data => {
@@ -21,7 +21,7 @@ $.ajax({
           return item.movieTitle.toLowerCase().indexOf(keyQ.toLowerCase()) > -1;
         })
         $('.namequery').html('');
-        for (i of result) { $('.namequery').append(`<div><img style="width:30px"src="${i.moviePicture}"><a href="/films/${i._id}">${i.movieTitle}<a/></div>`) }
+        for (i of result) { $('.namequery').append(`<div><img style="width:30px"src="${i.moviePicture}"><a href="/index/films/${i._id}">${i.movieTitle}<a/></div>`) }
       });
     })
 
@@ -29,7 +29,7 @@ $.ajax({
 // ADD DATA
   function loaddata(i, data) {
     $('.content').append(` <div class="main flex">
-          <div><a href="/films/${data[i]._id}"><img class="main__img--lists" src="${data[i].moviePicture}" alt=""></a></div>
+          <div><a href="/index/films/${data[i]._id}"><img class="main__img--lists" src="${data[i].moviePicture}" alt=""></a></div>
           <div class="main_right">
             <ul>
               <li class="main_right_lists flex"><span class="main_right_lists_left">Tên Phim</span>

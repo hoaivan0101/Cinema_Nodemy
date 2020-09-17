@@ -15,4 +15,7 @@ $(document).ready(function () {
     $('.backtotop').click(function () {
         $('html,body').animate({ scrollTop: 0 }, 700);
     })
+    $('.findfilm').click(function () {
+        $('#idfind').focus();
+    })
 })
