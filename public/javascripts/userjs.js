@@ -1,6 +1,19 @@
 $('.btn_login').click(function () {
-    var username = $('#username').val();
-    var password = $('#password').val();
+  // Test input
+  var username = $('#username').val();
+  var password = $('#password').val();
+  $('.alert_username').text('');
+  $('.alert_password').text('');
+  if (username == "") {
+    $('.alert_username').text('PLEASE INPUT USERNAME');
+    return false;
+  }
+  if (password == "") {
+    $('.alert_password').text('PLEASE INPUT PASSWORD');
+    return false;
+  }
+  // POST DATA
+  
     $.ajax({
       url: '/auth/local/login',
       type: "POST",
@@ -10,7 +23,7 @@ $('.btn_login').click(function () {
       }
     })
       .then(data => {
-        if (data == 'Fail') {swal('ERR')  }
+        if (data == 'Fail') { $('.alert_password').text('ACCOUNT NOT FOUND');  }
         else {
           setTimeout(function() {
             swal({
@@ -18,7 +31,7 @@ $('.btn_login').click(function () {
                 text: "LOGIN SUCCESSFUL",
                 type: "success"
             }, function() {
-              window.location.href ='/';
+              window.location.href ='/index';
             });
         }, 100);
         }

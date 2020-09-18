@@ -35,7 +35,7 @@ $(document).ready(function () {
             // Confirm               
             $('.btn').click(function () {
                 $.ajax({
-                    url: '/reservation/5500632d2dc02be024ba5c66', 
+                    url: '/reservation/'+id, 
                     type: 'POST',
                     data: {
                         seats:seat

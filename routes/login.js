@@ -8,7 +8,7 @@ var session = require('express-session')
 
 /* GET users listing. */
 
-router.get('/', function(req, res, next) {
+router.get('/login', function(req, res, next) {
   res.render('login');
 });
 

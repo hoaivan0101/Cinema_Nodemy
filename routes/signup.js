@@ -7,13 +7,24 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', function (req, res) {
-    User.create(req.body)
+    let username = req.body.userName;
+    let email = req.body.userEmail;
+    let CheckAccount = true;
+
+     User.find()
         .then(data => {
-            res.redirect('/user');
+            for (i of data) { 
+                if (username === i.userName||email==i.userEmail) { CheckAccount = false; break;}
+            }
+            User.create(req.body)
+            .then(data => {
+                res.json(CheckAccount);
+            })
+            .catch(err => {
+            res.json(err)
         })
-        .catch(err => {
-        res.redirect('/signup')
-    })
+        })
+    
 })
 
 module.exports =router;
